@@ -1,0 +1,54 @@
+<html>
+<head>
+  <!-- Standard Meta -->
+  <meta charset="utf-8" />
+  <!-- Site Properities -->
+  <title>Beep Sound List</title>
+  <link rel="stylesheet" type="text/css" href="http://ops-skyeye.b0.upaiyun.com/report/css/reports.css">
+  <link rel="stylesheet" type="text/css" href="http://ops-skyeye.b0.upaiyun.com/report/css/table.min.css">
+  <link rel="stylesheet" type="text/css" href="http://ops-skyeye.b0.upaiyun.com/report/css/label.min.css">
+  <link rel="stylesheet" type="text/css" href="http://ops-skyeye.b0.upaiyun.com/report/css/list.min.css">
+</head>
+
+<body>
+  <div id="content">
+    <div id="header">
+      <h1 class="ui purple header">Beep Sound List</h1>
+    </div>
+    <table class="ui small sortable table segment ">
+      <thead>
+        <tr>
+          <th>name</th>
+          <th>type</th>
+          <th>action</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for sound in sounds %}
+        <tr>
+          <td>{{ sound.name }}</td>
+          <td>Sound</td>
+          <td>
+            <a class="item" href="/play/{{ sound.id }}">
+            <div class="ui green horizontal label">Play</div>
+            </a>
+          </td>
+        </tr>
+        {% endfor %}
+        {% for say in says %}
+        <tr>
+          <td>{{ say.text }}</td>
+          <td>SayText</td>
+          <td>
+            <a class="item" href="/say/?text={{ say.text }}">
+            <div class="ui green horizontal label">Play</div>
+            </a>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+   </table>
+  </div>
+  <script src="//code.jquery.com/jquery-latest.min.js"></script>
+</body>
+</html>
